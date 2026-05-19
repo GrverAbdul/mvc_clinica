@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form action="/consultas/store"
+method="POST">
+
+    <input
+    type="date"
+    name="fecha"
+    class="form-control mb-2"
+    required>
+
+    <textarea
+    name="diagnostico"
+    class="form-control mb-2"
+    placeholder="diagnostico"></textarea>
+
+    <textarea
+    name="tratamiento"
+    class="form-control mb-2"
+    placeholder="tratamiento"></textarea>
+
+    <select
+    name="id_medico"
+    class="form-control mb-2">
+
+        {% for medico in medicos %}
+
+        <option value="{{ medico.id }}">
+            {{ medico.nombre }}
+        </option>
+
+        {% endfor %}
+
+    </select>
+
+    <select
+    name="id_paciente"
+    class="form-control mb-2">
+
+        {% for paciente in pacientes %}
+
+        <option value="{{ paciente.id }}">
+            {{ paciente.nombre }}
+        </option>
+
+        {% endfor %}
+
+    </select>
+
+    <button
+    class="btn btn-success">
+    guardar
+    </button>
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<a href="/consultas/create"
+class="btn btn-primary mb-3">
+nueva consulta
+</a>
+
+<table class="table table-bordered">
+
+    <thead class="table-dark">
+
+        <tr>
+            <th>fecha</th>
+            <th>medico</th>
+            <th>paciente</th>
+            <th>diagnostico</th>
+            <th>tratamiento</th>
+            <th>acciones</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+    {% for consulta in consultas %}
+
+        <tr>
+
+            <td>{{ consulta.fecha }}</td>
+
+            <td>{{ consulta.medico.nombre }}</td>
+
+            <td>{{ consulta.paciente.nombre }}</td>
+
+            <td>{{ consulta.diagnostico }}</td>
+
+            <td>{{ consulta.tratamiento }}</td>
+
+            <td>
+
+                <a
+                href="/consultas/delete/{{ consulta.id }}"
+                class="btn btn-danger btn-sm">
+                eliminar
+                </a>
+
+            </td>
+
+        </tr>
+
+    {% endfor %}
+
+    </tbody>
+
+</table>
+
+{% endblock %}

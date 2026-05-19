@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form action="/pacientes/store"
+method="POST">
+
+    <input
+    type="text"
+    name="nombre"
+    class="form-control mb-2"
+    placeholder="nombre"
+    required>
+
+    <input
+    type="number"
+    name="edad"
+    class="form-control mb-2"
+    placeholder="edad">
+
+    <input
+    type="text"
+    name="direccion"
+    class="form-control mb-2"
+    placeholder="direccion">
+
+    <input
+    type="text"
+    name="telefono"
+    class="form-control mb-2"
+    placeholder="telefono">
+
+    <button
+    class="btn btn-success">
+    guardar
+    </button>
+
+</form>
+
+{% endblock %}

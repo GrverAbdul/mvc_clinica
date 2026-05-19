@@ -1,1 +1,41 @@
-value="{{ medico.nombre }}"
+{% extends "base.html" %}
+
+{% block content %}
+
+<form action="/medicos/update/{{ medico.id }}"
+method="POST">
+
+    <input
+    type="text"
+    name="nombre"
+    class="form-control mb-2"
+    value="{{ medico.nombre }}"
+    required>
+
+    <input
+    type="text"
+    name="especialidad"
+    class="form-control mb-2"
+    value="{{ medico.especialidad }}"
+    required>
+
+    <input
+    type="text"
+    name="telefono"
+    class="form-control mb-2"
+    value="{{ medico.telefono }}">
+
+    <input
+    type="email"
+    name="correo"
+    class="form-control mb-2"
+    value="{{ medico.correo }}">
+
+    <button
+    class="btn btn-warning">
+    actualizar
+    </button>
+
+</form>
+
+{% endblock %}
