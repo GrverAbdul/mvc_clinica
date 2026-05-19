@@ -18,8 +18,13 @@ consulta_bp = Blueprint(
 #listar consultas
 @consulta_bp.route("/consultas")
 def index():
-
-    consultas = Consulta.query.all()
+    #obtener fecha
+    fecha = request.args.get("fecha")
+    #filtrar consultas
+    if fecha:
+        consultas = Consulta.query.filter_by(fecha=fecha).all()
+    else:
+        consultas = Consulta.query.all()
 
     return render_template(
         "consulta/index.html",
