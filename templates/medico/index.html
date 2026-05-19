@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<a href="/medicos/create"
+class="btn btn-primary mb-3">
+nuevo medico
+</a>
+
+<table class="table table-bordered">
+
+    <thead class="table-dark">
+
+        <tr>
+            <th>nombre</th>
+            <th>especialidad</th>
+            <th>telefono</th>
+            <th>correo</th>
+            <th>acciones</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+    {% for medico in medicos %}
+
+        <tr>
+
+            <td>{{ medico.nombre }}</td>
+
+            <td>{{ medico.especialidad }}</td>
+
+            <td>{{ medico.telefono }}</td>
+
+            <td>{{ medico.correo }}</td>
+
+            <td>
+
+                <a
+                href="/medicos/edit/{{ medico.id }}"
+                class="btn btn-warning btn-sm">
+                editar
+                </a>
+
+                <a
+                href="/medicos/delete/{{ medico.id }}"
+                class="btn btn-danger btn-sm">
+                eliminar
+                </a>
+
+            </td>
+
+        </tr>
+
+    {% endfor %}
+
+    </tbody>
+
+</table>
+
+{% endblock %}
